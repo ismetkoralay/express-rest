@@ -1,0 +1,28 @@
+openapi: 3.0.0
+info:
+  title: Express
+  description: Express Rest Api
+  version: 1.0.0
+components:
+  schemas:
+    RequestBody:
+      type: object
+      properties:
+        startDate:
+          type: string
+          description: YYYY-MM-DD
+        endDate:
+          type: string
+          description: YYYY-MM-DD
+        minCount:
+          type: number
+        maxCount:
+          type: number
+paths:
+  /api/v1:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestBody'
