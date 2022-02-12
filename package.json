@@ -1,0 +1,19 @@
+{
+  "name": "express-rest",
+  "version": "1.0.0",
+  "description": "Simple Rest Api developed with Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ismetkoralay/express-rest.git"
+  },
+  "author": "https://github.com/ismetkoralay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ismetkoralay/express-rest/issues"
+  },
+  "homepage": "https://github.com/ismetkoralay/express-rest#readme"
+}
