@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ismetkoralay/express-rest/issues"
   },
-  "homepage": "https://github.com/ismetkoralay/express-rest#readme"
+  "homepage": "https://github.com/ismetkoralay/express-rest#readme",
+  "devDependencies": {
+    "typescript": "4.5.5"
+  }
 }
