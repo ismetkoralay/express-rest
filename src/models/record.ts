@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Interface to create a record
 interface RecordAttrs {
     key: string;
     value: string;
@@ -11,6 +12,7 @@ interface RecordModel extends mongoose.Model<RecordDoc> {
     build(attrs: RecordAttrs): RecordDoc;
 }
 
+// Interface of document on mongodb
 interface RecordDoc extends mongoose.Document {
     key: string;
     value: string;

@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { validationResult } from "express-validator";
 import { CustomError } from "../models/custom-error";
 
+// returns errors if validation encounters any errors
 export const validateRequest = (
     req: Request,
     res: Response,

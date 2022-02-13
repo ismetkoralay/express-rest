@@ -7,6 +7,7 @@ interface RecordService {
 
 class RecordServiceImpl implements RecordService {
 
+    // Fetches proper data from mongodb with provided conditions
     async get(startDate: Date, endDate: Date, minCount: number, maxCount: number): Promise<RecordResponse[]> {
 
         const result = await Record.aggregate([

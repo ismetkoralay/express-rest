@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { CustomError } from "../models/custom-error";
 
+// All errors pass through here to convert it to user friendly form
 export const errorHandler = (
     err: Error,
     req: Request,

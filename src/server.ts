@@ -14,9 +14,15 @@ const startApp = async () => {
         throw new Error("You must provide MONGO_URL from environment");
     }
 
+    const dbName = process.env.DB_NAME;
+    if(!dbName) {
+        throw new Error("You must provide DB_NAME from environment")
+    }
+
     try {
+        // Connect to mongodb
         await mongoose.connect(connectionString, {
-            dbName: process.env.DB_NAME,
+            dbName: dbName,
             retryWrites: true,
             w: "majority"
         });

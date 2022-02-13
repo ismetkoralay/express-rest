@@ -18,7 +18,9 @@ app.use(cors());
 
 app.use(express.json());
 
-if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
+const env = process.env.NODE_ENV || "development";
+
+if (env === "development" || env === "test") {
     const swaggerPath = path.resolve(__dirname, "../swagger.yaml");
     const swaggerDocument = yaml.load(swaggerPath);
     app.use("/api/v1/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
