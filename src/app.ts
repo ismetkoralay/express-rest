@@ -18,13 +18,17 @@ app.use(cors());
 
 app.use(express.json());
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
     const swaggerPath = path.resolve(__dirname, "./swagger.yaml");
     const swaggerDocument = yaml.load(swaggerPath);
     app.use("/api/v1/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 }
 
 app.use(mainRouter);
+
+app.all('*', async (req, res) => {
+    throw new Error("Invalid route");
+});
 
 app.use(errorHandler);
 

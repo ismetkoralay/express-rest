@@ -16,7 +16,7 @@ const startApp = async () => {
 
     try {
         await mongoose.connect(connectionString, {
-            dbName: "getircase-study",
+            dbName: process.env.DB_NAME,
             retryWrites: true,
             w: "majority"
         });
