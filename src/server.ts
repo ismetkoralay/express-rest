@@ -1,6 +1,6 @@
 import { app } from "./app";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
+import mongoose from "mongoose";
 
 dotenv.config();
 
@@ -14,8 +14,12 @@ const startApp = async () => {
     }
 
     try {
-        await mongoose.connect(connectionString);
-        console.log("Mongo connected");
+        await mongoose.connect(connectionString, {
+            dbName: "getircase-study",
+            retryWrites: true,
+            w: "majority"
+        });
+        console.log("Connected to MongoDb");
     } catch (error) {
         console.log(error);
     }
