@@ -14,4 +14,4 @@ RUN npm install
 RUN find . -name "*.ts" | xargs rm
 USER 1000
 EXPOSE 3000
-CMD ["node", "./server.js"]
+CMD ["node", "./build/server.js"]
