@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { validationResult } from "express-validator";
+import { CustomError } from "../models/custom-error";
 
 export const validateRequest = (
     req: Request,
@@ -8,7 +9,8 @@ export const validateRequest = (
 ) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        throw new Error(errors.array().join(","));
+        const error = errors.array().map(e => e.msg as string).join(", ");
+        throw new CustomError(400, error);
     }
 
     next();

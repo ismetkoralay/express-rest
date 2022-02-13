@@ -6,6 +6,9 @@ import yaml from "yamljs";
 import swaggerUi from 'swagger-ui-express';
 import dotenv from "dotenv";
 import path from "path";
+import { errorHandler } from "./middlewares/error-handler";
+import 'express-async-errors';
+
 dotenv.config();
 
 const app = express();
@@ -22,5 +25,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use(mainRouter);
+
+app.use(errorHandler);
 
 export { app };

@@ -21,13 +21,33 @@ components:
     RecordResponse:
       type: object
       properties:
-        key:
-          type: string
-        createdAt:
-          type: Date
-          description: YYYY-MM-DD
-        totalCount:
+        code:
           type: number
+          description: 0 for Success, 1 for Error
+        msg:
+          type: string
+          description: Message for error case
+        records:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              createdAt:
+                type: Date
+                description: YYYY-MM-DD
+              totalCount:
+                type: number
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: number
+          description: 0 for Success, 1 for Error
+        msg:
+          type: string
+          description: Error message
 paths:
   /api/v1:
     post:
@@ -42,3 +62,13 @@ paths:
             application/json:
               schema:
                 ref: '#/components/schemas/RecordReponse'
+        '400':
+          content:
+            application/json:
+              schema:
+                ref: '#/components/schemas/ErrorResponse'
+        '500':
+          content:
+            application/json:
+              schema:
+                ref: '#/components/schemas/ErrorResponse'
