@@ -21,11 +21,7 @@ const startApp = async () => {
 
     try {
         // Connect to mongodb
-        await mongoose.connect(connectionString, {
-            dbName: dbName,
-            retryWrites: true,
-            w: "majority"
-        });
+        await mongoose.connect(connectionString);
         console.log("Connected to MongoDb");
     } catch (error) {
         console.log(error);
